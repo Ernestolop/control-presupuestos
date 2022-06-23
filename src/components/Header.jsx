@@ -2,7 +2,7 @@ import ControlPresupuesto from "./ControlPresupuesto";
 import NuevoPresupuesto from "./NuevoPresupuesto";
 
 const Header = props => {
-    const {presupuesto, setPresupuesto, presupuestoValido, setPresupuestoValido} = props;
+    const {presupuesto, setPresupuesto, presupuestoValido, setPresupuestoValido, gastos} = props;
 
   return (
     <header>
@@ -12,6 +12,7 @@ const Header = props => {
         (<ControlPresupuesto
             setPresupuesto={setPresupuesto}
             presupuesto={presupuesto}
+            gastos={gastos}
         />)
         :
         (<NuevoPresupuesto 
