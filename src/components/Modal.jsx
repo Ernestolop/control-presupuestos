@@ -86,7 +86,7 @@ const Modal = ({setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar
           </div>
           <div className="campo">
             <label htmlFor="categoria">Cantidad Gastada</label>
-            <select name="" id="categoria"
+            <select  id="categoria"
             value={categoria}
             onChange={e => setCategoria(e.target.value)}
             >

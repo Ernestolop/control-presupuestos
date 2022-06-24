@@ -15,7 +15,7 @@ import ocioIcono from '../img/icono_ocio.svg'
 import saludIcono from '../img/icono_salud.svg'
 import suscripcionesIcono from '../img/icono_suscripciones.svg'
 
-const Gasto = ({gasto, setGastoEditar}) => {
+const Gasto = ({gasto, setGastoEditar, gastos, setGastos}) => {
   const {nombre, cantidad, categoria, id, fecha} = gasto; 
 
   const diccionarioIconos = {
@@ -36,9 +36,19 @@ const Gasto = ({gasto, setGastoEditar}) => {
 
   const trailingActions = () => (
     <TrailingActions>
-      <SwipeAction onClick={() => console.log('eliminar')}>Eliminar</SwipeAction>
+      <SwipeAction onClick={() => eliminarGasto(gasto)}>Eliminar</SwipeAction>
     </TrailingActions>
   );
+
+  const eliminarGasto = gasto => {
+    const confirmar = confirm('Deseas eliminar este gasto?');
+    if (confirmar) {
+      const gastosActualizados = gastos.filter(e => e.id !== gasto.id);
+      setGastos(gastosActualizados);
+    };
+  };
+
+
 
   return (
     <SwipeableList>
